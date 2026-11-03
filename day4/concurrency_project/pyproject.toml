@@ -1,7 +1,7 @@
-[project]
+[python-concurrency-http]
 name = "concurrency-project"
 version = "0.1.0"
-description = "Add your description here"
+description = "A Python backend development project exploring concurrency, multithreading, asynchronous programming, HTTP requests and responses, and network communication fundamentals."
 readme = "README.md"
 authors = [
     { name = "YashKhadse01", email = "yashmkhadse@gmail.com" }
