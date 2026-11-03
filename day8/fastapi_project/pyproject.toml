@@ -1,7 +1,7 @@
-[project]
+[async-task-api]
 name = "fastapi-project"
 version = "0.1.0"
-description = "Add your description here"
+description = "A RESTful Task Management API built with FastAPI, asynchronous SQLAlchemy, and PostgreSQL, featuring CRUD operations, cursor-based pagination, Pydantic validation, and automated integration testing."
 readme = "README.md"
 authors = [
     { name = "YashKhadse01", email = "yashmkhadse@gmail.com" }
