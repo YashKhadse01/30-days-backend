@@ -1,0 +1,50 @@
+
+{% extends "blog/base.html" %}
+
+{% block title %}Blog Posts{% endblock %}
+
+{% block content %}
+<h2>Latest Blog Posts</h2>
+
+{% for post in posts %}
+<article>
+    <h2>
+        <a href="{{ post.get_absolute_url }}">
+            {{ post.title }}
+        </a>
+    </h2>
+
+    <p class="meta">
+        By {{ post.author.username }}
+        | {{ post.created_at|date:"d M Y" }}
+    </p>
+
+    <p>{{ post.content|truncatewords:35 }}</p>
+
+    <a href="{{ post.get_absolute_url }}">Read More</a>
+</article>
+{% empty %}
+<p>No published posts available yet.</p>
+{% endfor %}
+
+{% if is_paginated %}
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">
+            Previous
+        </a>
+    {% endif %}
+
+    <span>
+        Page {{ page_obj.number }} of
+        {{ page_obj.paginator.num_pages }}
+    </span>
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">
+            Next
+        </a>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}Django Blog{% endblock %}
+    </title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f6f9;
+            color: #222;
+        }
+
+        header {
+            background: #182d4d;
+            color: white;
+            padding: 20px 10%;
+        }
+
+        header h1 {
+            margin: 0 0 15px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #90caf9;
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        article {
+            background: white;
+            padding: 24px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        a {
+            color: #1465b8;
+        }
+
+        .meta {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .pagination {
+            margin-top: 25px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 20px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            main {
+                margin: 20px auto;
+                padding: 0 12px;
+            }
+
+            article {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            <a href="{% url 'blog:post_list' %}">
+                My Django Blog
+            </a>
+        </h1>
+
+        <nav>
+            <a href="{% url 'blog:post_list' %}">
+                Home
+            </a>
+
+            {% if user.is_authenticated %}
+                <a href="{% url 'blog:post_create' %}">
+                    Create Post
+                </a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>
