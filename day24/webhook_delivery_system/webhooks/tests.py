@@ -1,0 +1,1 @@
+"""Webhook tests are organized in dedicated test modules."""
