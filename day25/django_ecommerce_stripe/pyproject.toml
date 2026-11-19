@@ -1,0 +1,29 @@
+[project]
+name = "django-ecommerce-stripe"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "django>=5.2.19",
+    "djangorestframework>=3.18.3",
+    "psycopg[binary]>=3.3.9",
+    "python-dotenv>=1.2.4",
+    "stripe>=17.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "pytest-cov>=7.1.0",
+    "pytest-django>=4.14.0",
+    "ruff>=0.17.5",
+]
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+python_files = ["test_*.py"]
+testpaths = ["tests"]
+addopts = "-ra"
+[tool.ruff.lint]
+ignore = ["RUF012"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/migrations/*.py" = ["ALL"]

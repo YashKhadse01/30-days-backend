@@ -1,0 +1,1 @@
+# Register order models here when Django admin integration is needed.

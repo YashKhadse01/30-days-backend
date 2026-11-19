@@ -1,0 +1,1 @@
+# Automated order tests are maintained in the project-level tests/ directory.
