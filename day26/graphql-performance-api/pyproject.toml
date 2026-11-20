@@ -1,0 +1,31 @@
+[project]
+name = "graphql-performance-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "YashKhadse01", email = "yashmkhadse@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.165.0",
+    "prometheus-fastapi-instrumentator>=8.1.0",
+    "pydantic-settings>=2.16.3",
+    "strawberry-graphql[fastapi]>=0.341.2",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+graphql-performance-api = "graphql_performance_api:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "locust>=2.47.0",
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.5.0",
+]
