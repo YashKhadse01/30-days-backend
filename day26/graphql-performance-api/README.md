@@ -354,10 +354,4 @@ Future work could introduce PostgreSQL persistence, database-backed batching, ad
 | Performance report | Completed |
 | Automated testing | 7 passed |
 
-## Author
-
-**YashKhadse01**
-
-GitHub: https://github.com/YashKhadse01
-
 Part of the **30 Days of Backend Development** learning journey.
