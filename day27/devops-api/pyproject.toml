@@ -1,0 +1,42 @@
+[project]
+name = "devops-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "YashKhadse01", email = "yashmkhadse@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "asyncpg>=0.32.0",
+    "celery>=5.7.0",
+    "fastapi>=0.165.0",
+    "gunicorn>=27.0.1",
+    "packaging>=26.3",
+    "psycopg[binary]>=3.3.9",
+    "pydantic-settings>=2.16.3",
+    "redis>=8.1.0",
+    "sqlalchemy[asyncio]>=2.1.9",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+devops-api = "devops_api:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "celery-types>=0.26.0",
+    "httpx>=0.28.1",
+    "mypy>=2.4.1",
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.5.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.6",
+]
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+asyncio_default_fixture_loop_scope = "function"

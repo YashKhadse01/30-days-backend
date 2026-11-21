@@ -1,0 +1,51 @@
+
+name: Day 27 - DevOps API CI
+
+on:
+  push:
+    paths:
+      - "day27/devops-api/**"
+      - ".github/workflows/day27-ci.yml"
+  pull_request:
+    paths:
+      - "day27/devops-api/**"
+      - ".github/workflows/day27-ci.yml"
+  workflow_dispatch:
+
+jobs:
+  quality-and-tests:
+    name: Lint, Type Check and Test
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: day27/devops-api
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.9.18"
+          enable-cache: true
+          cache-dependency-glob: "day27/devops-api/uv.lock"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync --locked --all-groups
+
+      - name: Ruff lint
+        run: uv run ruff check src tests
+
+      - name: Ruff formatting
+        run: uv run ruff format --check src tests
+
+      - name: mypy type checking
+        run: uv run mypy src
+
+      - name: Run pytest
+        run: uv run pytest tests -v

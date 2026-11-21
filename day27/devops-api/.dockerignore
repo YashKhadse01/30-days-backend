@@ -1,0 +1,30 @@
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Test and coverage artifacts
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Version control
+.git/
+.github/
+
+# Local development files
+.vscode/
+.idea/
+*.log
+
+# Docker and temporary files
+*.tmp
