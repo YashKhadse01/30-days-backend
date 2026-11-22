@@ -35,6 +35,14 @@ def create_app() -> FastAPI:
             max_age=600,
         )
 
+    @app.middleware("http")
+    async def add_security_headers(request, call_next):
+        response = await call_next(request)
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["Referrer-Policy"] = "no-referrer"
+        return response
+
     app.include_router(auth_router)
     app.include_router(google_oauth_router)
     app.include_router(two_factor_router)
