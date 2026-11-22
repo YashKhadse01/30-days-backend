@@ -1,4 +1,4 @@
-# Capstone Core ? Advanced Python Backend
+# Capstone Core ! Advanced Python Backend
 
 Day 29 capstone project from the 30-Day Backend Development roadmap.
 
